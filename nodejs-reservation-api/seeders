@@ -1,0 +1,28 @@
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert('Reservations', [
+      {
+        name: 'John Doe',
+        date: new Date(),
+        time: '18:00',
+        guests: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Jane Smith',
+        date: new Date(),
+        time: '19:00',
+        guests: 4,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('Reservations', null, {});
+  }
+};
